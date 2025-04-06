@@ -14,6 +14,8 @@ GNU 汇编语法高亮的 VSCode 插件。
 
 语言模式选择 **GNU Assembly** 即可。
 
+xx
+
 ---
 
 ## 运行截图
