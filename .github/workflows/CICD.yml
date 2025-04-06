@@ -28,9 +28,11 @@ jobs:
           echo ${{github.event.pull_request.merged}}
           echo ${{github.event.pull_request.base.ref}}
           echo ${{github.event.pull_request.head.ref}}
+          echo ${{github.event_name}}
+          echo "$(jq . < $GITHUB_EVENT_PATH)"
 
       # - name: Publish extension
       #   if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'release'
       #   run: vsce publish -p ${{ secrets.VSCE_PAT }}
 
-      
+
