@@ -6,6 +6,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,13 +17,20 @@ jobs:
       - name: Package extension
         run: vsce package
 
-      - name: Publish extension
-        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'release'
-        run: vsce publish -p ${{ secrets.VSCE_PAT }}
-
       - name: Upload VSIX as artifact
         uses: actions/upload-artifact@v4
         with:
           name: build
           path: ./*.vsix
 
+      - name: echo message
+        run: |
+          echo ${{github.event.pull_request.merged}}
+          echo ${{github.event.pull_request.base.ref}}
+          echo ${{github.event.pull_request.head.ref}}
+
+      # - name: Publish extension
+      #   if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'release'
+      #   run: vsce publish -p ${{ secrets.VSCE_PAT }}
+
+      
