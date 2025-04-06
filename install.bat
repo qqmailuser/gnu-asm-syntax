@@ -1,6 +1,7 @@
 @echo off
 setlocal EnableDelayedExpansion
 
+
 :: Çå¿Õ build Ä¿Â¼
 if exist build (
     rd /s /q build

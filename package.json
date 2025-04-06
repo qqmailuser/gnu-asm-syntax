@@ -2,7 +2,7 @@
   "name": "gnu-asm-syntax",
   "displayName": "GNU Assembly Syntax Highlighter",
   "description": "GNU 汇编语法高亮插件，仅支持 GNU 汇编语言",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "publisher": "quzhen",
   "icon": "images/icon.png",
   "engines": {

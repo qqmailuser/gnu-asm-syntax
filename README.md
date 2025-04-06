@@ -1,6 +1,10 @@
 # GNU Assembly Syntax Highlighter
 
-GNU 汇编语法高亮 VSCode 插件。
+GNU 汇编语法高亮的 VSCode 插件。
+
+这里的汇编主要指嵌入式单片机的汇编。
+
+也就是 arm-none-eabi-gcc 生成的汇编文件。
 
 默认识别的文件后缀有 `.asm`，`.s`。
 
