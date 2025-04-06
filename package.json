@@ -1,0 +1,40 @@
+{
+  "name": "gnu-asm-syntax",
+  "displayName": "GNU Assembly Syntax Highlighter",
+  "description": "GNU 汇编语法高亮插件，仅支持 GNU 汇编语言",
+  "version": "0.1.14",
+  "publisher": "quzhen",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/demopath/gnu-asm-syntax.git"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "gnu-asm",
+        "aliases": [
+          "GNU Assembly",
+          "gnu-asm"
+        ],
+        "extensions": [
+          ".s",
+          ".asm"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gnu-asm",
+        "scopeName": "source.asm",
+        "path": "./syntaxes/gnu-asm.tmLanguage.json"
+      }
+    ]
+  }
+}
