@@ -1,15 +1,6 @@
 name: Publish VS Code Extension
 
-on:
-  push:
-    branches: [ main ]
-
-  pull_request:
-    branches: [ release ]
-    types:
-      - closed # 仅在 PR 被合并或关闭时触发
-  
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   publish:
