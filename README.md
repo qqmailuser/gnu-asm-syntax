@@ -27,4 +27,3 @@ GNU 汇编语法高亮的 VSCode 插件。
 - [GitHub](https://github.com/demopath/gnu-asm-syntax)
 - [MIT License](https://opensource.org/licenses/MIT)
 
-## 测试
