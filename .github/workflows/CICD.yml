@@ -1,0 +1,51 @@
+name: Publish VS Code Extension
+
+on:
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ release ]
+    types:
+      - closed # 仅在 PR 被合并或关闭时触发
+  
+  workflow_dispatch:
+
+jobs:
+
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+
+      - name: Install vsce
+        run: npm install -g vsce
+
+      - name: Package extension
+        run: vsce package
+
+      - name: Upload VSIX as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: ./*.vsix
+
+  CD:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'release'
+    runs-on: ubuntu-latest
+    needs: CI
+    steps:
+      - uses: actions/setup-node@v4
+      
+      - name: Download extension artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact
+          path: .
+          
+      - name: Install vsce
+        run: npm install -g vsce
+        
+      - name: Publish extension
+        run: vsce publish -p ${{ secrets.VSCE_PAT }}
